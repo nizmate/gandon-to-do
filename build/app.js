@@ -5,19 +5,13 @@ $(document).ready(function () {
 	const $toDoWraper = $('.js-todo-wrap')
 
 	/* init fetch */
-	fetchAllTask('to-do-list.json')
-		.then(res => {
-			renderItems($toDoWraper, res)
-				.then(res => {
-					updateStatus()
-				})
-		})
+	update($toDoWraper)
 })
 
-const update = (API_URL) => {
-	fetchAllTask(API_URL, 'to-do-list.json')
+const update = (wrap) => {
+	fetchAllTask('to-do-list.json')
 		.then(res => {
-			renderItems($toDoWraper, res)
+			renderItems(wrap, res)
 				.then(res => {
 					updateStatus()
 				})
